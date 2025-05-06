@@ -82,13 +82,15 @@ To verify that the environment is set up correctly, you can use the following co
 ### Example Configuration
 
 Here is an example configuration for the `br0` bridge:
-```markdown
+```
 sudo ovs-vsctl add-br br0
 sudo ovs-vsctl add-port br0 eth0
 sudo ip addr add 192.168.1.100/24 dev br0
 sudo ip link set br0 up
 ```
+
 This configuration creates an OVS bridge named `br0`, adds the `eth0` interface to the bridge, sets the IP address on the bridge to `192.168.1.100/24`, and brings up the bridge interface.
+
 **Task 2: Basic OVS Configuration**
 =====================================
 
