@@ -15,12 +15,80 @@ The project will consist of the following tasks:
 4. **Advanced OVN Configuration**: Configure OVN logical switches, routers, and ports, implement security groups and ACLs, and test and verify the network connectivity and security policies.
 5. **Integration with Other Technologies**: Integrate OVN with other technologies like OpenStack, Kubernetes, or Docker, configure network policies and security groups for the integrated environment, and test and verify the network connectivity and security policies.
 
-### Task 1: Setting up the Environment
+**Task 1: Setting up the Environment**
+=====================================
 
-* Install a Linux distribution (e.g., Ubuntu) on a virtual machine (VM) or a physical machine.
-* Install OVS and OVN packages on the Linux machine.
-* Configure the network interface to use OVS as the network bridge.
+### Objective
 
+The objective of this task is to set up a Linux environment with Open vSwitch (OVS) and Open Virtual Network (OVN) installed, and configure the network interface to use OVS as the network bridge.
+
+### Step-by-Step Instructions
+
+1. **Install a Linux Distribution**:
+	* Install a Linux distribution (e.g., Ubuntu) on a virtual machine (VM) or a physical machine.
+	* You can use a virtualization platform like VirtualBox, VMware, or KVM to create a VM.
+	* Make sure the Linux distribution is 64-bit and has a minimum of 4GB RAM and 20GB disk space.
+2. **Install OVS and OVN Packages**:
+	* Install the OVS and OVN packages on the Linux machine.
+	* You can use the following command to install OVS and OVN on Ubuntu:
+```
+sudo apt-get update
+sudo apt-get install -y openvswitch-switch openvswitch-common ovn-host ovn-central ovn-northd
+```
+3. **Configure the Network Interface**:
+	* Configure the network interface to use OVS as the network bridge.
+	* You can use the following command to create an OVS bridge:
+```
+sudo ovs-vsctl add-br br0
+```
+	* This will create an OVS bridge named `br0`.
+4. **Add Ports to the Bridge**:
+	* Add ports to the OVS bridge.
+	* You can use the following command to add a port to the bridge:
+```
+sudo ovs-vsctl add-port br0 eth0
+```
+	* This will add the `eth0` interface to the `br0` bridge.
+5. **Configure the IP Address**:
+	* Configure the IP address on the OVS bridge.
+	* You can use the following command to set the IP address on the bridge:
+```
+sudo ip addr add 192.168.1.100/24 dev br0
+```
+	* This will set the IP address on the `br0` bridge to `192.168.1.100/24`.
+6. **Bring Up the Interface**:
+	* Bring up the OVS bridge interface.
+	* You can use the following command to bring up the interface:
+```
+sudo ip link set br0 up
+```
+	* This will bring up the `br0` bridge interface.
+
+### Verification
+
+To verify that the environment is set up correctly, you can use the following commands:
+
+* `sudo ovs-vsctl show` : This will show the OVS configuration.
+* `sudo ip addr show` : This will show the IP address configuration.
+* `sudo bridge link show` : This will show the bridge configuration.
+
+### Troubleshooting Tips
+
+* Make sure the OVS and OVN packages are installed correctly.
+* Make sure the network interface is configured correctly.
+* Make sure the IP address is set correctly on the OVS bridge.
+* Use the `sudo ovs-vsctl` and `sudo ip` commands to troubleshoot any issues.
+
+### Example Configuration
+
+Here is an example configuration for the `br0` bridge:
+```markdown
+sudo ovs-vsctl add-br br0
+sudo ovs-vsctl add-port br0 eth0
+sudo ip addr add 192.168.1.100/24 dev br0
+sudo ip link set br0 up
+```
+This configuration creates an OVS bridge named `br0`, adds the `eth0` interface to the bridge, sets the IP address on the bridge to `192.168.1.100/24`, and brings up the bridge interface.
 **Task 2: Basic OVS Configuration**
 =====================================
 
