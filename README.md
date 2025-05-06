@@ -147,7 +147,7 @@ ovn-nbctl lport-add lp0
 4. **Configure security groups and ACLs**:
 	* Use `ovn-nbctl` to configure security groups and ACLs.
 	* You can use the following command to configure security groups and ACLs:
-	```markdown
+```
 ovn-nbctl sg-add sg0
 ovn-nbctl acl-add acl0
 ```
@@ -193,6 +193,7 @@ tcpdump -i lp0 -n -vv -s 0 -c 100
 ```
 tcpdump -i lp0 -n -vv -s 0 -c 100
 ```
+
 ### Task 5: Integration with Other Technologies
 
 * Integrate OVN with other technologies like OpenStack, Kubernetes, or Docker.
